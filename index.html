@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="el" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κλαούντιο Τσιπί | Ερασιτέχνης Φωτογράφος</title>
+    <meta name="description" content="Portfolio ερασιτέχνη φωτογράφου από τη Θεσσαλονίκη.">
+    <meta property="og:title" content="Κλαούντιο Τσιπί | Photography Portfolio">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#111111',
+                        cardbg: '#191919',
+                        bordercol: '#303030',
+                        maintext: '#F5F5F5',
+                        mutedtext: '#A5A5A5'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css" />
+
+    <style>
+        body {
+            background-color: #111111;
+            color: #F5F5F5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .serif-font { font-family: 'Cormorant Garamond', serif; }
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #111111; }
+        ::-webkit-scrollbar-thumb { background: #303030; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #404040; }
+    </style>
+</head>
+<body class="bg-darkbg text-maintext antialiased selection:bg-zinc-700 selection:text-white">
+
+    <!-- TOP NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-bordercol transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <a href="#home" class="group">
+                <span class="block font-serif text-xl sm:text-2xl tracking-[0.15em] font-light text-maintext group-hover:text-mutedtext transition-colors" data-i18n="brand-name">Κλαούντιο Τσιπί</span>
+                <span class="block text-[9px] tracking-[0.25em] uppercase text-mutedtext mt-0.5" data-i18n="brand-sub">Ερασιτέχνης Φωτογράφος</span>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] uppercase font-medium">
+                <a href="#home" class="text-mutedtext hover:text-maintext transition-colors" data-i18n="nav-home">Αρχική</a>
+                <a href="#portfolio" class="text-mutedtext hover:text-maintext transition-colors" data-i18n="nav-portfolio">Έργα</a>
+                <a href="#about" class="text-mutedtext hover:text-maintext transition-colors" data-i18n="nav-about">Σχετικά</a>
+                <a href="#equipment" class="text-mutedtext hover:text-maintext transition-colors" data-i18n="nav-equipment">Εξοπλισμός</a>
+                <a href="#contact" class="text-mutedtext hover:text-maintext transition-colors" data-i18n="nav-contact">Επικοινωνία</a>
+            </nav>
+
+            <div class="flex items-center space-x-6">
+                <button id="langToggle" type="button" data-i18n-aria="aria-lang" aria-label="Αλλαγή γλώσσας" class="cursor-pointer text-xs tracking-widest font-semibold px-3 py-1.5 border border-bordercol rounded text-maintext hover:border-zinc-400 transition-colors">EN</button>
+
+                <button id="mobileMenuBtn" type="button" data-i18n-aria="aria-menu" aria-label="Μενού" class="md:hidden text-maintext hover:text-mutedtext focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-darkbg border-b border-bordercol px-6 py-6 space-y-4 text-xs tracking-[0.2em] uppercase">
+            <a href="#home" class="block text-mutedtext hover:text-maintext mobile-link" data-i18n="nav-home">Αρχική</a>
+            <a href="#portfolio" class="block text-mutedtext hover:text-maintext mobile-link" data-i18n="nav-portfolio">Έργα</a>
+            <a href="#about" class="block text-mutedtext hover:text-maintext mobile-link" data-i18n="nav-about">Σχετικά</a>
+            <a href="#equipment" class="block text-mutedtext hover:text-maintext mobile-link" data-i18n="nav-equipment">Εξοπλισμός</a>
+            <a href="#contact" class="block text-mutedtext hover:text-maintext mobile-link" data-i18n="nav-contact">Επικοινωνία</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-16 px-6 relative border-b border-bordercol/40">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex items-center space-x-2 text-xs tracking-[0.25em] uppercase text-mutedtext">
+                    <span class="w-6 h-[1px] bg-mutedtext"></span>
+                    <span data-i18n="hero-sub">Ερασιτέχνης Φωτογράφος · Θεσσαλονίκη, Ελλάδα</span>
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-wide text-maintext" data-i18n="brand-name">Κλαούντιο Τσιπί</h1>
+
+                <p class="font-serif italic text-xl sm:text-2xl text-mutedtext font-light" data-i18n="hero-quote">«Η φωτογραφία είναι ο τρόπος μου να βλέπω τον κόσμο.»</p>
+
+                <p class="text-sm sm:text-base text-mutedtext font-light leading-relaxed max-w-xl" data-i18n="hero-desc">
+                    Ερασιτέχνης φωτογράφος από τη Θεσσαλονίκη. Αποτυπώνω στιγμές, τοπία και πορτρέτα με μεράκι και συνεχή διάθεση εξέλιξης.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-maintext text-darkbg text-xs tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors duration-200">
+                        <span data-i18n="btn-explore">Δείτε τα έργα μου</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-bordercol text-maintext text-xs tracking-[0.2em] uppercase font-medium hover:border-zinc-500 transition-colors duration-200" data-i18n="btn-contact">Επικοινωνία</a>
+                </div>
+            </div>
+
+            <!-- Hero image -->
+            <div class="lg:col-span-6 flex justify-center">
+                <div class="w-full aspect-[4/3] sm:aspect-[16/10] bg-cardbg border border-bordercol rounded-sm overflow-hidden">
+                    <img src="images/hero.jpg" alt="Κλαούντιο Τσιπί" data-i18n-alt="hero-alt" class="w-full h-full object-cover" onerror="this.style.opacity='0.2'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-bordercol pb-8">
+            <div>
+                <span class="text-xs tracking-[0.3em] uppercase text-mutedtext block mb-3" data-i18n="port-subtitle">Κατηγορίες &amp; Έργα</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-light tracking-wide text-maintext" data-i18n="port-title">Οι Φωτογραφίες μου</h2>
+            </div>
+
+            <!-- Filters generated by JS -->
+            <div id="filterBar" class="flex flex-wrap gap-2 sm:gap-4 mt-6 md:mt-0 text-xs tracking-[0.15em] uppercase"></div>
+        </div>
+
+        <!-- Gallery generated by JS -->
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-28 px-6 bg-cardbg/40 border-t border-b border-bordercol">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <span class="text-xs tracking-[0.3em] uppercase text-mutedtext block" data-i18n="about-subtitle">Προσωπική Πορεία</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-light tracking-wide text-maintext" data-i18n="about-title">Σχετικά με Εμένα</h2>
+            <p class="text-base sm:text-lg text-mutedtext font-light leading-relaxed max-w-2xl mx-auto" data-i18n="about-text">
+                Είμαι ερασιτέχνης φωτογράφος με έδρα τη Θεσσαλονίκη. Η φωτογραφία αποτελεί το προσωπικό μου ταξίδι εξερεύνησης του φωτός και των στιγμών γύρω μας. Μου αρέσει να αποτυπώνω τη φύση, τα ζώα, τα πορτρέτα και στιγμιότυπα της καθημερινότητας, με συνεχή διάθεση να μαθαίνω και να εξελίσσομαι μέσα από νέες εικόνες και εμπειρίες.
+            </p>
+        </div>
+    </section>
+
+    <!-- EQUIPMENT SECTION -->
+    <section id="equipment" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-[0.3em] uppercase text-mutedtext block mb-3" data-i18n="eq-subtitle">Τεχνικός Εξοπλισμός</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-light tracking-wide text-maintext" data-i18n="eq-title">Εργαλεία &amp; Εξοπλισμός</h2>
+            <p class="text-sm text-mutedtext mt-3" data-i18n="eq-desc">Ο εξοπλισμός που συνοδεύει τις φωτογραφικές μου εξόδους και τη δημιουργική διαδικασία.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-8 bg-cardbg border border-bordercol rounded-sm">
+                <span class="text-[10px] tracking-[0.25em] uppercase text-mutedtext block mb-2" data-i18n="eq-label-body">Σώμα Μηχανής</span>
+                <h3 class="font-serif text-xl font-medium text-maintext mb-2">Nikon Z30</h3>
+                <p class="text-xs text-mutedtext leading-relaxed" data-i18n="eq-z30">Ελαφρύ και ευέλικτο mirrorless σώμα για οδοιπορικά και καθημερινή λήψη.</p>
+            </div>
+            <div class="p-8 bg-cardbg border border-bordercol rounded-sm">
+                <span class="text-[10px] tracking-[0.25em] uppercase text-mutedtext block mb-2" data-i18n="eq-label-zoom">Φακοί Zoom</span>
+                <h3 class="font-serif text-xl font-medium text-maintext mb-2">Nikkor Z DX 16-50mm &amp; 50-250mm</h3>
+                <p class="text-xs text-mutedtext leading-relaxed" data-i18n="eq-lenses">Ζεύγος φακών kit για ευρυγώνιες λήψεις, τοπία και κοντινά θέματα.</p>
+            </div>
+            <div class="p-8 bg-cardbg border border-bordercol rounded-sm">
+                <span class="text-[10px] tracking-[0.25em] uppercase text-mutedtext block mb-2" data-i18n="eq-label-prime">Φακός Σταθερής Εστιακής</span>
+                <h3 class="font-serif text-xl font-medium text-maintext mb-2">TTArtisan 50mm f/1.2</h3>
+                <p class="text-xs text-mutedtext leading-relaxed" data-i18n="eq-ttartisan">Φακός με μεγάλο διάφραγμα για ξεχωριστά πορτρέτα και χαμηλό φως.</p>
+            </div>
+            <div class="p-8 bg-cardbg border border-bordercol rounded-sm">
+                <span class="text-[10px] tracking-[0.25em] uppercase text-mutedtext block mb-2" data-i18n="eq-label-light">Φωτισμός</span>
+                <h3 class="font-serif text-xl font-medium text-maintext mb-2">Godox iM30 &amp; iT32</h3>
+                <p class="text-xs text-mutedtext leading-relaxed" data-i18n="eq-godox">Compact μονάδες φλας για διακριτικό συμπληρωματικό φωτισμό.</p>
+            </div>
+            <div class="p-8 bg-cardbg border border-bordercol rounded-sm sm:col-span-2 lg:col-span-2">
+                <span class="text-[10px] tracking-[0.25em] uppercase text-mutedtext block mb-2" data-i18n="eq-label-post">Μετεπεξεργασία</span>
+                <h3 class="font-serif text-xl font-medium text-maintext mb-2">Adobe Lightroom</h3>
+                <p class="text-xs text-mutedtext leading-relaxed" data-i18n="eq-lr">Το βασικό εργαλείο επεξεργασίας για την ανάδειξη των χρωμάτων και των RAW αρχείων.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-28 px-6 max-w-7xl mx-auto border-t border-bordercol">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <span class="text-xs tracking-[0.3em] uppercase text-mutedtext block mb-3" data-i18n="contact-subtitle">Συνεργασίες &amp; Μηνύματα</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light tracking-wide text-maintext" data-i18n="contact-title">Επικοινωνία</h2>
+                </div>
+
+                <p class="text-sm text-mutedtext leading-relaxed" data-i18n="contact-intro">
+                    Ανοιχτός σε προτάσεις συνεργασίας και νέες ευκαιρίες εξέλιξης στον χώρο της φωτογραφίας.
+                </p>
+
+                <div class="space-y-4 pt-2 text-sm">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-mutedtext text-xs tracking-widest uppercase w-24">Email</span>
+                        <a href="mailto:klaudiotsipi@gmail.com" class="text-maintext hover:underline underline-offset-4">klaudiotsipi@gmail.com</a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-mutedtext text-xs tracking-widest uppercase w-24">Instagram</span>
+                        <a href="https://instagram.com/klaudio_ts" target="_blank" rel="noopener noreferrer" class="text-maintext hover:underline underline-offset-4">@klaudio_ts</a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-mutedtext text-xs tracking-widest uppercase w-24" data-i18n="loc-label">Τοποθεσία</span>
+                        <span class="text-maintext" data-i18n="loc-val">Θεσσαλονίκη, Ελλάδα</span>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-bordercol">
+                    <p class="font-serif italic text-lg text-maintext" data-i18n="contact-badge">«Ανοιχτός σε συνεργασίες και νέες ευκαιρίες.»</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-7 bg-cardbg border border-bordercol p-8 sm:p-12 rounded-sm">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    
+                    <!-- ΤΟ WEB3FORMS KEY ΣΟΥ -->
+                    <input type="hidden" name="access_key" value="edc129ed-bd48-4af7-a8ca-1df305b8c2cc">
+                    <input type="hidden" name="subject" value="Νέο μήνυμα από το portfolio">
+                    <input type="hidden" name="from_name" value="Portfolio Website">
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="f-name" class="block text-xs tracking-widest uppercase text-mutedtext mb-2" data-i18n="form-name">Όνομα</label>
+                            <input id="f-name" type="text" name="name" required class="w-full bg-darkbg border border-bordercol px-4 py-3 text-sm text-maintext focus:outline-none focus:border-zinc-500 rounded-sm">
+                        </div>
+                        <div>
+                            <label for="f-email" class="block text-xs tracking-widest uppercase text-mutedtext mb-2" data-i18n="form-email">Email</label>
+                            <input id="f-email" type="email" name="email" required class="w-full bg-darkbg border border-bordercol px-4 py-3 text-sm text-maintext focus:outline-none focus:border-zinc-500 rounded-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="f-msg" class="block text-xs tracking-widest uppercase text-mutedtext mb-2" data-i18n="form-msg">Μήνυμα</label>
+                        <textarea id="f-msg" name="message" rows="5" required class="w-full bg-darkbg border border-bordercol px-4 py-3 text-sm text-maintext focus:outline-none focus:border-zinc-500 rounded-sm"></textarea>
+                    </div>
+
+                    <button id="formSubmit" type="submit" class="w-full py-4 bg-maintext text-darkbg text-xs tracking-[0.2em] uppercase font-medium hover:bg-white transition-colors duration-200 cursor-pointer disabled:opacity-60" data-i18n="form-submit">Αποστολή Μηνύματος</button>
+
+                    <p id="formStatus" class="text-sm text-center min-h-[1.25rem]" role="status"></p>
+                    
+                    <!-- ΠΡΟΣΘΗΚΗ: Άμεσο Email -->
+                    <div class="text-center pt-4 border-t border-bordercol mt-4">
+                        <p class="text-xs text-mutedtext">
+                            Ή στείλε μου email απευθείας στο <br>
+                            <a href="mailto:klaudiotsipi@gmail.com" class="text-maintext underline underline-offset-4 hover:text-white transition-colors text-sm mt-1 inline-block">klaudiotsipi@gmail.com</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-bordercol text-center text-xs tracking-widest text-mutedtext">
+        <p data-i18n="footer">© 2026 Κλαούντιο Τσιπί. Με επιφύλαξη παντός δικαιώματος.</p>
+    </footer>
+
+    <!-- GLightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js"></script>
+    
+    <!-- ΦΟΡΤΩΣΗ ΤΟΥ photos.js -->
+    <script src="photos.js"></script>
+
+    <script>
+        const CATEGORY_ORDER = ['cars', 'nature', 'portrait', 'aviation', 'wedding', 'details'];
+
+        const translations = {
+            el: {
+                'page-title': 'Κλαούντιο Τσιπί | Ερασιτέχνης Φωτογράφος',
+                'brand-name': 'Κλαούντιο Τσιπί',
+                'brand-sub': 'Ερασιτέχνης Φωτογράφος',
+                'nav-home': 'Αρχική',
+                'nav-portfolio': 'Έργα',
+                'nav-about': 'Σχετικά',
+                'nav-equipment': 'Εξοπλισμός',
+                'nav-contact': 'Επικοινωνία',
+                'aria-lang': 'Αλλαγή γλώσσας',
+                'aria-menu': 'Μενού',
+                'hero-sub': 'Ερασιτέχνης Φωτογράφος · Θεσσαλονίκη, Ελλάδα',
+                'hero-quote': '«Η φωτογραφία είναι ο τρόπος μου να βλέπω τον κόσμο.»',
+                'hero-desc': 'Ερασιτέχνης φωτογράφος από τη Θεσσαλονίκη. Αποτυπώνω στιγμές, τοπία και πορτρέτα με μεράκι και συνεχή διάθεση εξέλιξης.',
+                'hero-alt': 'Κλαούντιο Τσιπί - φωτογραφία',
+                'btn-explore': 'Δείτε τα έργα μου',
+                'btn-contact': 'Επικοινωνία',
+                'port-subtitle': 'Κατηγορίες & Έργα',
+                'port-title': 'Οι Φωτογραφίες μου',
+                'filter-all': 'Όλα',
+                'cat-cars': 'Αυτοκίνητα',
+                'cat-nature': 'Φύση & Τοπίο',
+                'cat-portrait': 'Πορτρέτα',
+                'cat-aviation': 'Αεροπορία',
+                'cat-wedding': 'Γάμοι',
+                'cat-details': 'Λεπτομέρειες & Στιγμές',
+                'about-subtitle': 'Προσωπική Πορεία',
+                'about-title': 'Σχετικά με Εμένα',
+                'about-text': 'Είμαι ερασιτέχνης φωτογράφος με έδρα τη Θεσσαλονίκη. Η φωτογραφία αποτελεί το προσωπικό μου ταξίδι εξερεύνησης του φωτός και των στιγμών γύρω μας. Μου αρέσει να αποτυπώνω τη φύση, τα ζώα, τα πορτρέτα και στιγμιότυπα της καθημερινότητας, με συνεχή διάθεση να μαθαίνω και να εξελίσσομαι μέσα από νέες εικόνες και εμπειρίες.',
+                'eq-subtitle': 'Τεχνικός Εξοπλισμός',
+                'eq-title': 'Εργαλεία & Εξοπλισμός',
+                'eq-desc': 'Ο εξοπλισμός που συνοδεύει τις φωτογραφικές μου εξόδους και τη δημιουργική διαδικασία.',
+                'eq-label-body': 'Σώμα Μηχανής',
+                'eq-label-zoom': 'Φακοί Zoom',
+                'eq-label-prime': 'Φακός Σταθερής Εστιακής',
+                'eq-label-light': 'Φωτισμός',
+                'eq-label-post': 'Μετεπεξεργασία',
+                'eq-z30': 'Ελαφρύ και ευέλικτο mirrorless σώμα για οδοιπορικά και καθημερινή λήψη.',
+                'eq-lenses': 'Ζεύγος φακών kit για ευρυγώνιες λήψεις, τοπία και κοντινά θέματα.',
+                'eq-ttartisan': 'Φακός με μεγάλο διάφραγμα για ξεχωριστά πορτρέτα και χαμηλό φως.',
+                'eq-godox': 'Compact μονάδες φλας για διακριτικό συμπληρωματικό φωτισμό.',
+                'eq-lr': 'Το βασικό εργαλείο επεξεργασίας για την ανάδειξη των χρωμάτων και των RAW αρχείων.',
+                'contact-subtitle': 'Συνεργασίες & Μηνύματα',
+                'contact-title': 'Επικοινωνία',
+                'contact-intro': 'Ανοιχτός σε προτάσεις συνεργασίας και νέες ευκαιρίες εξέλιξης στον χώρο της φωτογραφίας.',
+                'loc-label': 'Τοποθεσία',
+                'loc-val': 'Θεσσαλονίκη, Ελλάδα',
+                'contact-badge': '«Ανοιχτός σε συνεργασίες και νέες ευκαιρίες.»',
+                'form-name': 'Όνομα',
+                'form-email': 'Email',
+                'form-msg': 'Μήνυμα',
+                'form-submit': 'Αποστολή Μηνύματος',
+                'form-sending': 'Αποστολή...',
+                'form-success': 'Ευχαριστώ! Το μήνυμά σου στάλθηκε.',
+                'form-error': 'Κάτι πήγε στραβά. Δοκίμασε ξανά ή στείλε email απευθείας.',
+                'footer': '© 2026 Κλαούντιο Τσιπί. Με επιφύλαξη παντός δικαιώματος.'
+            },
+            en: {
+                'page-title': 'Klaudio Tsipi | Amateur Photographer',
+                'brand-name': 'Klaudio Tsipi',
+                'brand-sub': 'Amateur Photographer',
+                'nav-home': 'Home',
+                'nav-portfolio': 'Portfolio',
+                'nav-about': 'About',
+                'nav-equipment': 'Equipment',
+                'nav-contact': 'Contact',
+                'aria-lang': 'Change language',
+                'aria-menu': 'Menu',
+                'hero-sub': 'Amateur Photographer · Thessaloniki, Greece',
+                'hero-quote': '"Photography is my way of seeing the world."',
+                'hero-desc': 'Amateur photographer based in Thessaloniki. Capturing moments, landscapes and portraits with passion and a constant drive to evolve.',
+                'hero-alt': 'Klaudio Tsipi - photograph',
+                'btn-explore': 'Explore My Work',
+                'btn-contact': 'Contact',
+                'port-subtitle': 'Categories & Work',
+                'port-title': 'Photography Portfolio',
+                'filter-all': 'All',
+                'cat-cars': 'Cars',
+                'cat-nature': 'Nature & Landscape',
+                'cat-portrait': 'Portraits',
+                'cat-aviation': 'Aviation',
+                'cat-wedding': 'Weddings',
+                'cat-details': 'Details & Moments',
+                'about-subtitle': 'Personal Journey',
+                'about-title': 'About Me',
+                'about-text': 'I am an amateur photographer based in Thessaloniki. Photography is my personal journey of exploring light and the moments around us. I love capturing nature, wildlife, portraits and everyday snapshots, always eager to learn and grow through new images and experiences.',
+                'eq-subtitle': 'Technical Gear',
+                'eq-title': 'Tools & Gear',
+                'eq-desc': 'The equipment that accompanies my photography outings and creative process.',
+                'eq-label-body': 'Camera Body',
+                'eq-label-zoom': 'Zoom Lenses',
+                'eq-label-prime': 'Prime Lens',
+                'eq-label-light': 'Lighting',
+                'eq-label-post': 'Post-Production',
+                'eq-z30': 'Lightweight and versatile mirrorless body for travel and everyday shooting.',
+                'eq-lenses': 'A pair of kit zoom lenses for wide shots, landscapes and close-ups.',
+                'eq-ttartisan': 'Wide-aperture lens for distinctive portraits and low-light shooting.',
+                'eq-godox': 'Compact flash units for subtle supplementary lighting.',
+                'eq-lr': 'My main editing tool for bringing out colors and getting the most from RAW files.',
+                'contact-subtitle': 'Collaborations & Inquiries',
+                'contact-title': 'Contact',
+                'contact-intro': 'Open to collaboration proposals and new growth opportunities in photography.',
+                'loc-label': 'Location',
+                'loc-val': 'Thessaloniki, Greece',
+                'contact-badge': '"Open to collaborations and new opportunities."',
+                'form-name': 'Name',
+                'form-email': 'Email',
+                'form-msg': 'Message',
+                'form-submit': 'Send Message',
+                'form-sending': 'Sending...',
+                'form-success': 'Thank you! Your message has been sent.',
+                'form-error': 'Something went wrong. Please try again or email me directly.',
+                'footer': '© 2026 Klaudio Tsipi. All rights reserved.'
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') === 'en' ? 'en' : 'el';
+        let currentFilter = 'all';
+        let lightbox = null;
+
+        const t = (key) => (translations[currentLang] && translations[currentLang][key]) || key;
+
+        const esc = (str) => String(str)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+        /* ---------- Filters ---------- */
+        function renderFilters() {
+            const bar = document.getElementById('filterBar');
+            if (!bar) return;
+
+            const present = CATEGORY_ORDER.filter(cat => PORTFOLIO_ITEMS.some(i => i.category === cat && i.file));
+            if (currentFilter !== 'all' && !present.includes(currentFilter)) currentFilter = 'all';
+
+            if (present.length <= 1) { bar.innerHTML = ''; return; }
+
+            const buttons = [{ key: 'all', label: t('filter-all') }]
+                .concat(present.map(cat => ({ key: cat, label: t('cat-' + cat) })));
+
+            bar.innerHTML = '';
+            buttons.forEach(b => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.dataset.filter = b.key;
+                btn.textContent = b.label;
+                const active = b.key === currentFilter;
+                btn.className = 'filter-btn px-3 py-1.5 border-b-2 transition-all cursor-pointer ' +
+                    (active ? 'text-maintext border-maintext' : 'text-mutedtext hover:text-maintext border-transparent');
+                btn.addEventListener('click', () => {
+                    currentFilter = b.key;
+                    renderFilters();
+                    renderGallery();
+                });
+                bar.appendChild(btn);
+            });
+        }
+
+        /* ---------- Gallery ---------- */
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const items = PORTFOLIO_ITEMS
+                .filter(i => i.file)
+                .filter(i => currentFilter === 'all' || i.category === currentFilter);
+
+            items.forEach(item => {
+                const title = esc(currentLang === 'el' ? item.titleEl : item.titleEn);
+                const path = `images/${item.category}/${item.file}`;
+                const card = document.createElement('div');
+                card.className = 'group relative bg-cardbg border border-bordercol rounded-sm overflow-hidden flex flex-col justify-between';
+                card.innerHTML = `
+                    <a href="${path}" class="glightbox block aspect-[4/5] overflow-hidden relative cursor-zoom-in" data-gallery="portfolio-gallery" data-title="${title}">
+                        <img src="${path}" alt="${title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <div class="p-4 border-t border-bordercol bg-darkbg/90">
+                        <h4 class="font-serif text-base text-maintext">${title}</h4>
+                        <span class="text-[11px] text-mutedtext block mt-0.5">${esc(item.camera)}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            if (typeof GLightbox !== 'undefined') {
+                if (lightbox) lightbox.destroy();
+                lightbox = GLightbox({ selector: '.glightbox' });
+            }
+        }
+
+        /* ---------- Language ---------- */
+        function applyLanguage() {
+            document.documentElement.lang = currentLang;
+            document.title = t('page-title');
+
+            const langBtn = document.getElementById('langToggle');
+            if (langBtn) langBtn.textContent = currentLang === 'el' ? 'EN' : 'EL';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                el.textContent = t(el.dataset.i18n);
+            });
+            document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                el.setAttribute('aria-label', t(el.dataset.i18nAria));
+            });
+            document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+                el.setAttribute('alt', t(el.dataset.i18nAlt));
+            });
+
+            renderFilters();
+            renderGallery();
+        }
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'el' ? 'en' : 'el';
+            localStorage.setItem('lang', currentLang);
+            applyLanguage();
+        });
+
+        /* ---------- Mobile menu ---------- */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        /* ---------- Contact form ---------- */
+        const form = document.getElementById('contactForm');
+        const statusEl = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('formSubmit');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusEl.className = 'text-sm text-center min-h-[1.25rem] text-mutedtext';
+            statusEl.textContent = t('form-sending');
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
+                });
+                const result = await response.json();
+                if (response.ok && result.success) {
+                    statusEl.className = 'text-sm text-center min-h-[1.25rem] text-green-400';
+                    statusEl.textContent = t('form-success');
+                    form.reset();
+                } else {
+                    throw new Error('submit failed');
+                }
+            } catch (err) {
+                statusEl.className = 'text-sm text-center min-h-[1.25rem] text-red-400';
+                statusEl.textContent = t('form-error');
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+
+        /* ---------- Init ---------- */
+        applyLanguage();
+    </script>
+</body>
+</html>
